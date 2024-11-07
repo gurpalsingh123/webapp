@@ -8,14 +8,14 @@ pipeline {
                 bat 'mvn -B -DskipTests clean package'
             }
         }
-  //       stage('Sonar-Report') {
-  //           steps {
-  //           sh 'mvn sonar:sonar \
-  // -Dsonar.projectKey=jenkins_project \
-  // -Dsonar.host.url=http://localhost:9000 \
-  // -Dsonar.login=sqa_814bcfcd61e3f081215c428528953d4e53e78a41
-  //           }
-  //       }
+        stage('Sonar-Report') {
+            steps {
+            sh 'mvn sonar:sonar \
+  -Dsonar.projectKey=jenkins_project \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqa_814bcfcd61e3f081215c428528953d4e53e78a41'
+            }
+        }
         stage('Test') { 
             steps {
                 bat 'mvn test' 
